@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Threading;
 
 namespace Slutprojekt
 {
@@ -32,16 +32,56 @@ namespace Slutprojekt
             Towns stad2 = new Towns();
 
             City stad3 = new City();
-            //Klassernas namn blir hämtade med hjälp av metoden GetName
-            string a = stad1.GetName();
+            //Instansernas namn blir hämtade med hjälp av metoden GetName
+            string name1 = stad1.GetName();
 
-            string b = stad2.GetName();
+            string name2 = stad2.GetName();
 
-            string c = stad3.GetName();
+            string name3 = stad3.GetName();
+            //Instansernas inkomster och behov blir insamlade med GetTaxes och GetNeeds
+            int tax1 = stad1.GetTaxes();
 
-            Console.WriteLine("Du styr över tre städer, " + a + " en by, " + b + " en stad, och " + c + " en storstad.");
+            int tax2 = stad2.GetTaxes();
 
-            
+            int tax3 = stad3.GetTaxes();
+
+            int needs1 = stad1.GetNeeds();
+
+            int needs2 = stad2.GetNeeds();
+
+            int needs3 = stad3.GetNeeds();
+            //Instansernas gladhet blir hämtade av GetHappiness
+            int happiness1 = stad1.GetHappiness();
+
+            int happiness2 = stad2.GetHappiness();
+
+            int happiness3 = stad3.GetHappiness();
+
+            //Mer information till spelaren
+            Console.WriteLine("Du styr över tre städer, " + name1 + " en by, " + name2 + " en stad, och " + name3 + " en storstad.");
+            Console.WriteLine(name1 + " har en inkomst på " + tax1 + " guld och ett behov av " + needs1 + " guld.");
+            Console.WriteLine(name2 + " har en inkomst på " + tax2 + " guld och ett behov av " + needs2 + " guld.");
+            Console.WriteLine(name3 + " har en inkomst på " + tax3 + " guld och ett behov av " + needs3 + " guld.");
+            Console.WriteLine("Varje stad börjar med en gladhet på 5, hamnar detta värde under noll så kommer de göra uppror och du förlorar.");
+            Console.WriteLine("Så länge du kan möta deras behov kommer deras gladhet inte gå ner, och du kan få upp den genom att bygga saker.");
+            Console.WriteLine("Tryck på vilken knapp som helst...");
+
+            Console.ReadKey();
+
+            Console.Clear();
+            //Alla instansernas skatter och behov samlas i två ints
+            int totalTaxes = tax1 + tax2 + tax3;
+
+            int totalNeeds = needs1 + needs2 + needs3;
+
+            Console.WriteLine("Du ska spela tre månader och får göra olika val samtidigt som du hanterar dina städer.");
+            Console.WriteLine("Du börjar med en inkomst på " + totalTaxes + " guld och betalar ut " + totalNeeds + " guld.");
+            Thread.Sleep(3000);
+            Console.Clear();
+
+            Console.WriteLine("Månad 1 börjar nu. Du har " + totalTaxes + " i din skattkista.");
+            Console.WriteLine(name1 + " has a happiness of " + happiness1 + " and has a need of " + needs1 + " gold, how much do you want to pay them?");
+            string a = Console.ReadLine();
 
 
 

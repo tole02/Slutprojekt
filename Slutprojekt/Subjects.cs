@@ -39,6 +39,18 @@ namespace Slutprojekt
         {
             return name;
         }
-        
+        //Metoder för att hämta klassens skatt, behov och gladhet
+        public int GetTaxes()
+        {
+            return taxes;
+        }
+        public int GetNeeds()
+        {
+            return needs;
+        }
+        public int GetHappiness()
+        {
+            return happiness;
+        }
     }
 }
