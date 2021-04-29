@@ -82,7 +82,26 @@ namespace Slutprojekt
             Console.WriteLine("Månad 1 börjar nu. Du har " + totalTaxes + " i din skattkista.");
             Console.WriteLine(name1 + " has a happiness of " + happiness1 + " and has a need of " + needs1 + " gold, how much do you want to pay them?");
             string a = Console.ReadLine();
+            int b = 0;
+            Int32.TryParse(a, out b);
 
+            while(b < 0 || b >= totalTaxes)
+            {
+                Console.WriteLine("Du måste ange en siffra mellan 0 och max av din skattkista.");
+                a = Console.ReadLine();
+                b = int.Parse(a);
+            }
+            Console.WriteLine("Du betalar " + name1 + " " + b + " guld.");¨
+
+            if(b == 0)
+            {
+                stad1.TickHappiness();
+                System.Console.WriteLine();
+            }
+
+            int secondHappiness1 = stad1.GetHappiness();
+            
+            Console.WriteLine(name1);
 
 
 

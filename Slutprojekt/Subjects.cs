@@ -52,5 +52,9 @@ namespace Slutprojekt
         {
             return happiness;
         }
+        public void TickHappiness()
+        {
+            happiness -= 2;
+        }
     }
 }
