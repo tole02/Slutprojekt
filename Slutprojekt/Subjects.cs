@@ -10,8 +10,6 @@ namespace Slutprojekt
         protected int needs;
         //Platsens namn
         private string name = "";
-        //Hur många människor som bor där, ju mer desto mer kostar det men desto fler skatter får man
-        protected int population;
         //Hur glada stadens invånare är
         protected int happiness = 5;
         //Skatten man får från befolkningen
@@ -52,6 +50,7 @@ namespace Slutprojekt
         {
             return happiness;
         }
+        //Metod som sänker gladheten
         public void TickHappiness()
         {
             happiness -= 2;
