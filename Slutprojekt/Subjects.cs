@@ -17,9 +17,9 @@ namespace Slutprojekt
         
         private Random generator = new Random();
         //Listor med namn och byggnader
-        List<string> names = new List<string>() {"Sharpton", "Aroonshire", "MillerVille", "Auchendinny", "Appleby", "Braedon", "Queenstown"};
+        private List<string> names = new List<string>() {"Sharpton", "Aroonshire", "MillerVille", "Auchendinny", "Appleby", "Braedon", "Queenstown"};
        
-        List<string> buildings = new List<string>() {"Church", "Tavern", "Sewer"};
+        private List<string> buildings = new List<string>() {"Church", "Tavern", "Sewer"};
         //Konstruktor som ger staden sitt namn och happiness
         public Subjects()
         {
