@@ -42,7 +42,7 @@ namespace Slutprojekt
 
             Console.Clear();
             //Här upprepas exakt samma process för stad 2
-            Console.WriteLine(t2.GetName() + " har en gladhet på " + t2.GetHappiness() + " och ett behov av " + t2.GetHappiness() + " guld, hur mycket vill du betala dem?");
+            Console.WriteLine(t2.GetName() + " har en gladhet på " + t2.GetHappiness() + " och ett behov av " + t2.GetNeeds() + " guld, hur mycket vill du betala dem?");
 
             a = Console.ReadLine();
             b = 0;

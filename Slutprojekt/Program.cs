@@ -7,25 +7,6 @@ namespace Slutprojekt
     {
         static void Main(string[] args)
         {
-            //Information om vad spelet är och hur det ska spelas
-            Console.WriteLine("I detta spelet spelar du som en kung/drottning som ska styra över ett medeltida kungadöme.");
-            Console.WriteLine("Du måste använda dina resurser för att se till att dina undersåtar och deras städer och byar är glada.");
-            Console.WriteLine("Du gör detta genom att fördela dina skatter och bygga olika saker i städerna, t.ex kyrkor.");
-            Console.WriteLine("Tryck på vilken knapp som helst...");
-
-            Console.ReadKey();
-
-            Console.Clear();
-            //Ännu fler instruktioner
-            Console.WriteLine("De städerna du styr över kommer i tre olika storlekar med olika förutsättningar.");
-            Console.WriteLine("1.By 2.Stad 3.Storstad.");
-            Console.WriteLine("En by har den minsta populationen och därmed behöver minst mängd pengar för att fungera, men du får även mindre i skatt från en by.");
-            Console.WriteLine("En stad har större befolkning och större behov samt skatter, medans storstad har mest av allting.");
-            Console.WriteLine("Tryck på vilken knapp som helst...");
-
-            Console.ReadKey();
-
-            Console.Clear();
             //Här instansieras varje klass
             Village stad1 = new Village();
 
@@ -77,6 +58,26 @@ namespace Slutprojekt
             int happiness2 = stad2.GetHappiness();
 
             int happiness3 = stad3.GetHappiness();
+            
+            //Information om vad spelet är och hur det ska spelas
+            Console.WriteLine("I detta spelet spelar du som en kung/drottning som ska styra över ett medeltida kungadöme.");
+            Console.WriteLine("Du måste använda dina resurser för att se till att dina undersåtar och deras städer och byar är glada.");
+            Console.WriteLine("Du gör detta genom att fördela dina skatter och bygga olika saker i städerna, t.ex kyrkor.");
+            Console.WriteLine("Tryck på vilken knapp som helst...");
+
+            Console.ReadKey();
+
+            Console.Clear();
+            //Ännu fler instruktioner
+            Console.WriteLine("De städerna du styr över kommer i tre olika storlekar med olika förutsättningar.");
+            Console.WriteLine("1.By 2.Stad 3.Storstad.");
+            Console.WriteLine("En by har den minsta populationen och därmed behöver minst mängd pengar för att fungera, men du får även mindre i skatt från en by.");
+            Console.WriteLine("En stad har större befolkning och större behov samt skatter, medans storstad har mest av allting.");
+            Console.WriteLine("Tryck på vilken knapp som helst...");
+
+            Console.ReadKey();
+
+            Console.Clear();
 
             //Mer information till spelaren
             Console.WriteLine("Du styr över tre städer, " + name1 + " en by, " + name2 + " en stad, och " + name3 + " en storstad.");
@@ -116,138 +117,16 @@ namespace Slutprojekt
             totalTaxes = tax1 + tax2 + tax3;
             //Spelprocessen körs tre gånger till, en för varje stad, spelaren får reda på gladhet och behov och skriver hur mycket pengar varje stad får
             //Denna gången får däremot stad 3 pest och gladheten går ner och behovet går upp
-            Console.WriteLine("Månad 2 börjar nu. Du har " + totalTaxes + " guld i din kista.");
-            Console.WriteLine(name3 + " har drabbats av pesten! Stadens gladhet går ner med 3 och deras behov går upp med 2 denna månad!");
-
-            needs3 += 2;    
-            fourthHappiness3 -= 3;
-            //Om gladheten i stad 3 blir noll så förlorar spelaren
-            if(fourthHappiness3 == 0)
-            {
-                System.Console.WriteLine(name3 + "s gladhet har nått noll! De har startat ett uppror och många andra städer följer dem! Du har förlorat spelet.");
-                System.Console.WriteLine("Var spelet roligt? (JA/NEJ)");
-                string input = Console.ReadLine();
-                //Loopen kollar så spelaren skriver rätt
-                while(input != "ja" && input != "nej" && input != "Ja" && input != "Nej")
-                {
-                    System.Console.WriteLine("Svara ja eller nej!");
-                    input = Console.ReadLine();
-                }
-                //Spelet stängs ner
-                if(input == "ja" && input == "Ja" && input == "nej" && input == "Nej")
-                {
-                    return;
-                }
-                return;
-            }
-
-            Console.WriteLine(name1 + " har en gladhet på " + fourthHappiness1 + " och ett behov av " + needs1 + " guld, hur mycket vill du betala dem?");
-            a = Console.ReadLine();
-            b = 0;
-            Int32.TryParse(a, out b);
-
-            while(b < 0 || b >= totalTaxes)
-            {
-                Console.WriteLine("Du måste ange en siffra mellan 0 och max av din skattkista.");
-                a = Console.ReadLine();
-                b = int.Parse(a);
-            }
-            Console.WriteLine("Du betalar " + name1 + " " + b + " guld.");
-
-            if(b < needs1)
-            {
-                stad1.TickHappiness();
-            }
-
-            int fifthHappiness1 = stad1.GetHappiness();
-            //Om gladheten blir för låg förlorar spelaren
-            if(fifthHappiness1 <= 0)
-            {
-                System.Console.WriteLine(name1 + "s gladhet har nått noll! De har startat ett uppror och många andra städer följer dem! Du har förlorat spelet.");
-                return;
-            }
             
-            Console.WriteLine(name1 + " har nu en gladhet på " + fifthHappiness1 + ".");
-            Console.WriteLine("Tryck på vilken knapp som helst...");
+            e2.WriteInfo2(totalTaxes, stad1, stad2, stad3);
 
-            Console.ReadKey();
-
-            Console.Clear();
-
-            Console.WriteLine(name2 + " har en gladhet på " + fourthHappiness2 + " och ett behov av " + needs2 + " guld, hur mycket vill du betala dem?");
-
-            a = Console.ReadLine();
-            b = 0;
-            Int32.TryParse(a, out b);
-
-            while(b < 0 || b >= totalTaxes)
-            {
-                Console.WriteLine("Du måste ange en siffra mellan 0 och max av din skattkista.");
-                a = Console.ReadLine();
-                b = int.Parse(a);
-            }
-            Console.WriteLine("Du betalar " + name2 + " " + b + " guld.");
-            totalTaxes -= b;
-
-            if(b < needs2)
-            {
-                stad2.TickHappiness();
-            }
-            
-            int fifthHappiness2 = stad2.GetHappiness();
-
-            if(fifthHappiness2 <= 0)
-            {
-                System.Console.WriteLine(name2 + "s gladhet har nått noll! De har startat ett uppror och många andra städer följer dem! Du har förlorat spelet.");
-                System.Console.WriteLine("Tryck på vilken knapp som helst...");
-                Console.ReadLine();
-                return;
-            }
-
-            Console.WriteLine(name3 + " har nu en gladhet på " + fifthHappiness2 + ", och du har " + totalTaxes + " guld i kistan.");
-            Console.WriteLine("Tryck på vilken knapp som helst...");
-
-            Console.ReadKey();
-
-            Console.Clear();
-
-            Console.WriteLine(name3 + " har en gladhet på " + fourthHappiness3 + " och ett behov av " + needs3 + " guld, hur mycket vill du betala dem?");
-
-            a = Console.ReadLine();
-            b = 0;
-            Int32.TryParse(a, out b);
-
-            while(b < 0 || b >= totalTaxes)
-            {
-                Console.WriteLine("Du måste ange en siffra mellan 0 och max av din skattkista.");
-                a = Console.ReadLine();
-                b = int.Parse(a);
-            }
-            Console.WriteLine("Du betalar " + name3 + " " + b + " guld.");
-            totalTaxes -= b;
-
-            if(b < needs3)
-            {
-                stad3.TickHappiness();
-            }
-            
-            
-            int fifthHappiness3 = stad3.GetHappiness();
-
-            if(fifthHappiness3 == 0)
-            {
-                System.Console.WriteLine(name3 + "s gladhet har nått noll! De har startat ett uppror och många andra städer följer dem! Du har förlorat spelet.");
-                return;
-            }
-
-            Console.WriteLine(name1 + " har nu en gladhet på " + fifthHappiness3 + ", och du har " + totalTaxes + " guld i kistan.");
             Console.WriteLine("Tryck på vilken knapp som helst...");
 
             Console.ReadKey();
 
             Console.Clear();
            
-           BuildHouse(stad1, stad2, stad3);
+           e1.BuildHouse(stad1, stad2, stad3);
 
             //Spelet är över
             System.Console.WriteLine("Tack för att du har spelat! Spelet är över.");
