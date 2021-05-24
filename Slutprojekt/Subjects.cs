@@ -55,5 +55,22 @@ namespace Slutprojekt
         {
             happiness -= 2;
         }
+
+        public void SetHappiness(int decrease)
+        {
+            happiness -= decrease;
+            if(happiness < 0)
+            {
+                happiness = 0;
+            }
+        }
+        public void IncreaseNeeds(int increase)
+        {
+            if(increase <= 0)
+            {
+                increase = 1;
+            }
+            needs += increase;
+        }
     }
 }

@@ -51,13 +51,11 @@ namespace Slutprojekt
             Console.WriteLine("Månad 2 börjar nu. Du har " + totalTaxes + " guld i din kista.");
             Console.WriteLine(a3.GetName() + " har drabbats av pesten! Stadens gladhet går ner med 3 och deras behov går upp med 2 denna månad!");
 
-            int needsNow = a3.GetNeeds();
-            int happinessNow = a3.GetHappiness();
+            a3.SetHappiness(3);
+            a3.IncreaseNeeds(2);
 
-            needsNow += 2;    
-            happinessNow -= 3;
             //Om gladheten i stad 3 blir noll så förlorar spelaren
-            if(needsNow == 0)
+            if(a3.GetHappiness() == 0)
             {
                 System.Console.WriteLine(a3.GetName() + "s gladhet har nått noll! De har startat ett uppror och många andra städer följer dem! Du har förlorat spelet.");
                 System.Console.WriteLine("Var spelet roligt? (JA/NEJ)");
@@ -146,7 +144,7 @@ namespace Slutprojekt
 
             Console.Clear();
 
-            Console.WriteLine(a3.GetName() + " har en gladhet på " + happinessNow + " och ett behov av " + needsNow + " guld, hur mycket vill du betala dem?");
+            Console.WriteLine(a3.GetName() + " har en gladhet på " + a3.GetHappiness() + " och ett behov av " + a3.GetNeeds() + " guld, hur mycket vill du betala dem?");
 
             a = Console.ReadLine();
             b = 0;
